@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ana Sofía Rosero — Interactive Media Design · Graphic Design · Audiovisual</title>
+  <meta name="description" content="Portafolio de Ana Sofía Rosero, diseñadora de Medios Interactivos en formación: diseño gráfico, branding, ilustración, empaques, UX/UI, motion graphics y producción audiovisual." />
+  <meta name="theme-color" content="#13110F" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ana Sofía Rosero — Portafolio" />
+  <meta property="og:description" content="Interactive Media Design · Graphic Design · Audiovisual. Diseñadora en formación, creando experiencias visuales y digitales." />
+  <meta property="og:image" content="https://anasofiarosero.github.io/myportfolio/assets/icesi/icesi-carrusel-1600.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ana Sofía Rosero",
+    "jobTitle": "Diseñadora de Medios Interactivos (en formación)",
+    "knowsAbout": ["Diseño gráfico", "Branding", "Ilustración", "Diseño de empaques", "UX/UI", "Motion graphics", "Producción audiovisual"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- LOADER -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__count"><span data-loader-count>00</span></div>
+    <div class="loader__mark">ASR</div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" data-nav>
+    <a href="#top" class="nav__logo" aria-label="Ana Sofía Rosero — inicio" data-cursor="Inicio">
+      <span class="nav__logo-mark">A<em>S</em>R</span>
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#sobre-mi" data-magnetic>Sobre mí</a>
+      <a href="#trabajo" data-magnetic>Proyectos</a>
+      <a href="#garabatos" data-magnetic>Garabatos</a>
+      <a href="#same-beat" data-magnetic>Same Beat</a>
+      <a href="#audiovisual" data-magnetic>Audiovisual</a>
+    </nav>
+    <a href="#contacto" class="nav__cta" data-magnetic>Contacto <span aria-hidden="true">↘</span></a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="sr-only">Abrir menú</span><i></i><i></i>
+    </button>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Menú móvil">
+      <a href="#sobre-mi"><small>01</small>Sobre mí</a>
+      <a href="#trabajo"><small>02</small>Proyectos</a>
+      <a href="#garabatos"><small>03</small>Garabatos</a>
+      <a href="#same-beat"><small>04</small>Same Beat</a>
+      <a href="#audiovisual"><small>06</small>Audiovisual</a>
+      <a href="#contacto"><small>08</small>Contacto</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__meta mono">
+        <span>Portafolio — 2026</span>
+        <span class="hero__coords" aria-hidden="true">x <b data-coord-x>000</b> · y <b data-coord-y>000</b></span>
+        <span class="hero__rec" aria-hidden="true"><i></i>REC <b data-timecode>00:00:00:00</b></span>
+      </div>
+
+      <h1 class="hero__title" id="hero-title" aria-label="Ana Sofía Rosero">
+        <span class="hero__line" data-hero-line><span class="kinetic" data-kinetic>ANA</span></span>
+        <span class="hero__line hero__line--serif" data-hero-line><span class="kinetic-serif" data-split>Sofía</span></span>
+        <span class="hero__line" data-hero-line><span class="kinetic" data-kinetic>ROSERO</span></span>
+      </h1>
+
+      <!-- garabato: trazo dibujado sobre el nombre -->
+      <svg class="hero__scribble" viewBox="0 0 600 220" aria-hidden="true">
+        <path d="M20 160 C 90 40, 160 210, 230 110 S 330 20, 380 120 S 470 210, 520 90 C 545 40, 585 60, 575 110" />
+      </svg>
+
+      <div class="hero__badge" aria-hidden="true" data-parallax="0.6">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+          <text><textPath href="#circ">INTERACTIVE MEDIA • GRAPHIC DESIGN • AUDIOVISUAL • </textPath></text>
+        </svg>
+        <span class="hero__badge-star">✳</span>
+      </div>
+
+      <div class="hero__bottom">
+        <p class="hero__disciplines mono" data-reveal>Interactive Media Design · Graphic Design · Audiovisual</p>
+        <p class="hero__intro" data-reveal>Diseñadora en formación, creando experiencias <em>visuales</em> y <em>digitales</em>.</p>
+        <ul class="hero__areas mono" data-reveal aria-label="Áreas creativas">
+          <li>Branding</li><li>Ilustración</li><li>UX/UI</li><li>Motion</li><li>Video</li><li>Empaques</li>
+        </ul>
+        <a href="#sobre-mi" class="hero__scroll mono" data-cursor="Bajar"><span>Scroll</span><i aria-hidden="true"></i></a>
+      </div>
+
+      <div class="hero__stickers" aria-hidden="true">
+        <span class="sticker sticker--a" data-parallax="1.2">diseño gráfico</span>
+        <span class="sticker sticker--b" data-parallax="-0.9">✦ motion</span>
+        <span class="sticker sticker--c" data-parallax="0.8">ilustración</span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" data-marquee>
+        <span>Diseño gráfico</span><b>✳</b><span>Identidad visual</span><b>✳</b><span>Ilustración</span><b>✳</b><span>Empaques</span><b>✳</b><span>Diseño digital</span><b>✳</b><span>UX/UI</span><b>✳</b><span>Producción audiovisual</span><b>✳</b><span>Edición de video</span><b>✳</b><span>Motion graphics</span><b>✳</b><span>Creación de contenido</span><b>✳</b>
+      </div>
+    </div>
+
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="about" id="sobre-mi" aria-labelledby="about-title">
+      <header class="section-head">
+        <span class="section-head__num mono">(01) — Sobre mí</span>
+      </header>
+      <div class="about__grid">
+        <figure class="about__photo" data-photo>
+          <!-- Reemplazar por la fotografía real: <img src="assets/ana.jpg" alt="Ana Sofía Rosero" /> -->
+          <div class="about__photo-slot" role="img" aria-label="Espacio reservado para la fotografía de Ana Sofía Rosero">
+            <span class="mono">Fotografía</span>
+            <span class="about__photo-mark">A<em>S</em>R</span>
+            <span class="mono">próximamente</span>
+          </div>
+          <span class="tape tape--1" aria-hidden="true"></span>
+          <span class="tape tape--2" aria-hidden="true"></span>
+        </figure>
+
+        <div class="about__text">
+          <h2 class="about__title" id="about-title">
+            <span data-split-words>Hola,</span> <span data-split-words>soy</span> <em data-split-words>Ana Sofía.</em>
+          </h2>
+          <p class="about__lead" data-reveal>Estudio <strong>Diseño de Medios Interactivos</strong> y diseño cosas que se <em>ven</em>, se <em>usan</em> y se <em>mueven</em>.</p>
+          <p data-reveal>Me interesa el punto donde la imagen se encuentra con la interacción: una identidad que se vuelve sistema, una ilustración que se vuelve producto, una idea que se vuelve video o interfaz. He trabajado con clientes reales en identidades visuales, ilustración por encargo y contenido digital, y disfruto llevar cada proyecto desde el concepto hasta la pieza final —incluida su animación.</p>
+
+          <dl class="about__facts">
+            <div data-reveal><dt><span data-count-to="23">23</span></dt><dd class="mono">ilustraciones por encargo para Garabatos</dd></div>
+            <div data-reveal><dt>+<span data-count-to="11">11</span>M</dt><dd class="mono">reproducciones en un video de TikTok</dd></div>
+            <div data-reveal><dt>≈<span data-count-to="400">400</span></dt><dd class="mono">asistentes al evento de Improvisados</dd></div>
+          </dl>
+
+          <h3 class="about__sub mono">Lo que hago</h3>
+          <ul class="about__skills" aria-label="Áreas">
+            <li data-reveal><span class="mono">01</span>Diseño gráfico</li>
+            <li data-reveal><span class="mono">02</span>Identidad visual & branding</li>
+            <li data-reveal><span class="mono">03</span>Ilustración</li>
+            <li data-reveal><span class="mono">04</span>Diseño de empaques</li>
+            <li data-reveal><span class="mono">05</span>Diseño digital · UX/UI</li>
+            <li data-reveal><span class="mono">06</span>Producción y edición audiovisual</li>
+            <li data-reveal><span class="mono">07</span>Motion graphics</li>
+            <li data-reveal><span class="mono">08</span>Creación de contenido</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="work" id="trabajo" aria-labelledby="work-title">
+      <header class="section-head">
+        <span class="section-head__num mono">(02) — Proyectos</span>
+        <h2 class="section-head__title" id="work-title"><span data-split-words>Proyectos</span> <em data-split-words>seleccionados</em></h2>
+        <p class="section-head__aside mono" data-reveal>Proyectos con clientes reales, académicos y personales. Cada pieza abre su caso completo.</p>
+      </header>
+
+      <div class="filters" role="group" aria-label="Filtrar proyectos por categoría" data-filters></div>
+      <div class="gallery" data-gallery></div>
+      <p class="gallery__empty mono" data-gallery-empty hidden>No hay proyectos en esta categoría todavía.</p>
+    </section>
+
+    <!-- ============ GARABATOS ============ -->
+    <section class="garabatos" id="garabatos" aria-labelledby="garabatos-title">
+      <div class="garabatos__intro">
+        <span class="section-head__num mono">(03) — Garabatos · Illustration gallery</span>
+        <h2 class="garabatos__title" id="garabatos-title" data-split>Garabatos</h2>
+        <div class="garabatos__text">
+          <p data-reveal>Ilustraciones realizadas <em>por encargo</em> para Garabatos, aplicadas sobre tote bags. Personajes, escenas y retratos ilustrados a pedido de cada cliente.</p>
+          <dl class="garabatos__facts">
+            <div data-reveal><dt class="mono">Ilustraciones</dt><dd><span data-count-to="23">23</span></dd></div>
+            <div data-reveal><dt class="mono">Además</dt><dd class="garabatos__small">Animaciones cortas de logotipos y personajes para la marca</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="carousel" data-carousel role="region" aria-roledescription="carrusel" aria-label="Tote bags ilustradas para Garabatos" tabindex="0">
+        <div class="carousel__bignum mono" aria-hidden="true"><span data-carousel-bignum>01</span></div>
+        <div class="carousel__stage" data-carousel-stage>
+          <div class="carousel__ghost carousel__ghost--prev" data-carousel-ghost="prev" aria-hidden="true"></div>
+          <div class="carousel__ghost carousel__ghost--next" data-carousel-ghost="next" aria-hidden="true"></div>
+          <div class="carousel__spot" aria-hidden="true"></div>
+          <div class="carousel__slides" data-carousel-slides></div>
+          <div class="carousel__floor" aria-hidden="true"></div>
+        </div>
+
+        <button class="carousel__arrow carousel__arrow--prev" data-carousel-prev aria-label="Ilustración anterior" data-cursor="Anterior">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M24 10 L14 20 L24 30" /></svg>
+        </button>
+        <button class="carousel__arrow carousel__arrow--next" data-carousel-next aria-label="Ilustración siguiente" data-cursor="Siguiente">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M16 10 L26 20 L16 30" /></svg>
+        </button>
+
+        <div class="carousel__ui">
+          <p class="carousel__counter mono" aria-live="polite"><span data-carousel-current>01</span><i>/</i><span data-carousel-total>00</span></p>
+          <p class="carousel__caption" data-carousel-caption></p>
+          <div class="carousel__progress" data-carousel-progress role="tablist" aria-label="Seleccionar ilustración"></div>
+          <button class="carousel__zoom mono" data-carousel-zoom>Ampliar <span aria-hidden="true">⤢</span></button>
+        </div>
+        <p class="carousel__hint mono" aria-hidden="true">← → para navegar · desliza en móvil</p>
+      </div>
+    </section>
+
+    <!-- lightbox -->
+    <dialog class="lightbox" data-lightbox aria-label="Vista ampliada">
+      <button class="lightbox__close mono" data-lightbox-close>Cerrar ✕</button>
+      <div class="lightbox__frame" data-lightbox-frame>
+        <img data-lightbox-img alt="" />
+      </div>
+      <p class="lightbox__meta mono"><span data-lightbox-count></span> · clic para acercar</p>
+    </dialog>
+
+    <!-- ============ SAME BEAT ============ -->
+    <section class="samebeat" id="same-beat" aria-labelledby="samebeat-title">
+      <div class="samebeat__head">
+        <span class="section-head__num mono">(04) — Same Beat · Digital experience</span>
+        <h2 class="samebeat__title" id="samebeat-title"><span data-split>Same</span><span data-split>Beat</span></h2>
+      </div>
+
+      <div class="samebeat__grid">
+        <div class="samebeat__info">
+          <p class="samebeat__lead" data-reveal>Una aplicación web para <em>conectar con personas que comparten tu gusto musical</em>, descubrir conciertos y no tener que ir solo.</p>
+          <p class="samebeat__body" data-reveal>El recorrido de bienvenida presenta la propuesta en tarjetas animadas —descubrir tus gustos, encontrar personas que coinciden con tu vibe y no volver a ir solo a un concierto— y continúa con el registro e inicio de sesión. La identidad combina tipografía display de trazo líquido con personajes 3D como guías de la experiencia.</p>
+
+          <div class="samebeat__role" data-reveal>
+            <h3 class="mono">Mi participación</h3>
+            <ul data-samebeat-role></ul>
+          </div>
+
+          <div class="samebeat__actions" data-reveal>
+            <a class="btn btn--lime" href="https://same-beat.onrender.com/" target="_blank" rel="noopener" data-magnetic data-cursor="Abrir">
+              Visitar la app <span aria-hidden="true">↗</span>
+            </a>
+            <button class="btn btn--ghost" data-samebeat-live>Probar aquí en vivo</button>
+          </div>
+          <p class="samebeat__note mono" data-reveal>App desplegada en Render: si estuvo inactiva puede tardar unos segundos en despertar.</p>
+        </div>
+
+        <div class="samebeat__device" data-samebeat-device>
+          <div class="phone">
+            <div class="phone__notch" aria-hidden="true"></div>
+            <div class="phone__screen" data-phone-screen>
+              <img src="assets/samebeat/welcome-mobile.jpg" alt="Pantalla de bienvenida de Same Beat en móvil: tarjeta 'Welcome to SameBeat' con mascota verde" class="is-active" loading="lazy" />
+              <img src="assets/samebeat/login-mobile.jpg" alt="Pantalla de inicio de sesión de Same Beat en móvil" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tira de pantallas -->
+      <div class="screens" data-screens>
+        <div class="screens__track" data-screens-track>
+          <figure class="screen"><div class="browser"><i></i><i></i><i></i><span class="mono">same-beat.onrender.com</span></div><img src="assets/samebeat/welcome-desktop.jpg" alt="Same Beat — pantalla de bienvenida en escritorio con tarjetas en carrusel 3D" loading="lazy" /><figcaption class="mono">01 · Bienvenida</figcaption></figure>
+          <figure class="screen"><div class="browser"><i></i><i></i><i></i><span class="mono">same-beat.onrender.com/signup</span></div><img src="assets/samebeat/signup-desktop.jpg" alt="Same Beat — formulario de registro con ilustración de personajes" loading="lazy" /><figcaption class="mono">02 · Registro</figcaption></figure>
+          <figure class="screen"><div class="browser"><i></i><i></i><i></i><span class="mono">same-beat.onrender.com/login</span></div><img src="assets/samebeat/login-desktop.jpg" alt="Same Beat — inicio de sesión con Google, Apple o correo" loading="lazy" /><figcaption class="mono">03 · Inicio de sesión</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASOS ============ -->
+    <section class="cases" aria-label="Casos destacados" data-cases></section>
+
+    <!-- ============ AUDIOVISUAL ============ -->
+    <section class="av" id="audiovisual" aria-labelledby="av-title">
+      <div class="av__grain" aria-hidden="true"></div>
+      <div class="av__head">
+        <span class="section-head__num mono">(06) — Motion & audiovisual</span>
+        <h2 class="av__title" id="av-title"><span data-split-words>Crear,</span> <span data-split-words>grabar,</span> <em data-split-words>editar.</em></h2>
+        <p class="av__lead" data-reveal>Creo, grabo y edito contenido para TikTok: idea, cámara, ritmo de edición y motion graphics en el mismo flujo.</p>
+      </div>
+
+      <div class="av__stats">
+        <div class="stat" data-reveal>
+          <span class="stat__value"><span data-count-to="11.4" data-decimals="1">0</span><small>K</small></span>
+          <span class="stat__label mono">Seguidores en TikTok</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat__value"><span data-count-to="3.8" data-decimals="1">0</span><small>M</small></span>
+          <span class="stat__label mono">Me gusta</span>
+        </div>
+        <div class="stat stat--big" data-reveal>
+          <span class="stat__value"><small>+</small><span data-count-to="11">0</span><small>M</small></span>
+          <span class="stat__label mono">Reproducciones en un solo video</span>
+        </div>
+      </div>
+
+      <div class="reel" data-reel></div>
+      <div class="av__links" data-av-links></div>
+    </section>
+
+    <!-- ============ HERRAMIENTAS ============ -->
+    <section class="tools" id="herramientas" aria-labelledby="tools-title" data-tools hidden>
+      <header class="section-head">
+        <span class="section-head__num mono">(07) — Herramientas</span>
+        <h2 class="section-head__title" id="tools-title"><span data-split-words>Mi</span> <em data-split-words>caja de herramientas</em></h2>
+      </header>
+      <div class="tools__groups" data-tools-groups></div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <span class="section-head__num mono">(08) — Contacto</span>
+      <h2 class="contact__title" id="contact-title">
+        <span class="contact__line"><span data-kinetic>¿Hacemos</span></span>
+        <span class="contact__line"><em>algo</em> <span data-kinetic>juntos?</span></span>
+      </h2>
+      <ul class="contact__links" data-contact-links></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="mono">© 2026 Ana Sofía Rosero</span>
+    <span class="mono footer__time">Hora local <b data-clock>--:--</b></span>
+    <a href="#top" class="mono" data-cursor="Arriba">Volver arriba ↑</a>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
