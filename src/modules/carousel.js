@@ -41,7 +41,7 @@ export function initCarousel(items, { lenis } = {}) {
   const bars = items.map((it, i) => {
     const b = document.createElement('button');
     b.setAttribute('role', 'tab');
-    b.setAttribute('aria-label', `Ilustración ${i + 1}: ${it.caption}`);
+    b.setAttribute("aria-label", `Ilustración ${i + 1}`);
     b.addEventListener('click', () => go(i));
     progress.appendChild(b);
     return b;
@@ -165,7 +165,7 @@ export function initCarousel(items, { lenis } = {}) {
   function setLightbox() {
     lbImg.src = items[index].src;
     lbImg.alt = items[index].alt;
-    lbCount.textContent = `${pad2(index + 1)} / ${pad2(N)} — ${items[index].caption}`;
+    lbCount.textContent = `${pad2(index + 1)} / ${pad2(N)}`;
     unzoom();
   }
   function openLightbox() {

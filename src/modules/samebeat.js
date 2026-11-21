@@ -46,6 +46,8 @@ export function initSameBeat({ role, url }) {
     btn.textContent = 'Volver a las capturas';
   });
 
+  initScreens(root);
+
   if (reduced) return;
 
   // teléfono: entra girando en 3D con el scroll
@@ -53,19 +55,51 @@ export function initSameBeat({ role, url }) {
     rotateY: 0, rotateX: 0, yPercent: 0, ease: 'none',
     scrollTrigger: { trigger: $('.samebeat__grid', root), start: 'top 90%', end: 'center 50%', scrub: 0.8 },
   });
+}
 
-  // tira horizontal de pantallas, fijada durante el scroll (escritorio)
-  const mm = gsap.matchMedia();
-  mm.add('(min-width: 861px)', () => {
-    const wrap = $('[data-screens]', root);
-    const track = $('[data-screens-track]', root);
-    const dist = () => track.scrollWidth - window.innerWidth;
-    gsap.to(track, {
-      x: () => -dist(), ease: 'none',
-      scrollTrigger: { trigger: wrap, start: 'center center', end: () => `+=${dist()}`, pin: true, scrub: 0.8, invalidateOnRefresh: true },
+/**
+ * Pantallas en tablet: carrusel con flechas. La pantalla activa va al centro
+ * y las vecinas se asoman a los lados. No bloquea el scroll de la página.
+ */
+function initScreens(root) {
+  const wrap = $('[data-screens]', root);
+  const track = $('[data-screens-track]', root);
+  const slides = $$('.screen', track);
+  const counter = $('[data-screens-count]', root);
+  if (!slides.length) return;
+  let i = 0;
+
+  const go = (k, instant = false) => {
+    i = Math.max(0, Math.min(slides.length - 1, k));
+    const s = slides[i];
+    const x = wrap.clientWidth / 2 - (s.offsetLeft + s.offsetWidth / 2);
+    gsap.to(track, { x, duration: instant || reduced ? 0 : 0.9, ease: 'expo.out' });
+    slides.forEach((el, n) => {
+      el.classList.toggle('is-active', n === i);
+      el.setAttribute('aria-hidden', n === i ? 'false' : 'true');
     });
-    $$('.screen', track).forEach((s) => {
-      gsap.fromTo($('img', s), { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: wrap, start: 'top bottom', end: () => `+=${dist() + innerHeight}`, scrub: true } });
-    });
+    counter.textContent = `${String(i + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+    $('[data-screens-prev]', root).disabled = i === 0;
+    $('[data-screens-next]', root).disabled = i === slides.length - 1;
+  };
+
+  $('[data-screens-prev]', root).addEventListener('click', () => go(i - 1));
+  $('[data-screens-next]', root).addEventListener('click', () => go(i + 1));
+  slides.forEach((s, n) => s.addEventListener('click', () => n !== i && go(n)));
+  wrap.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
   });
+
+  // deslizar en celular
+  let sx = 0, sy = 0;
+  wrap.addEventListener('pointerdown', (e) => { sx = e.clientX; sy = e.clientY; });
+  wrap.addEventListener('pointerup', (e) => {
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) go(i + (dx < 0 ? 1 : -1));
+  });
+
+  go(0, true);
+  window.addEventListener('resize', () => go(i, true));
+  window.addEventListener('load', () => go(i, true));
 }

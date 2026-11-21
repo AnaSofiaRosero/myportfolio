@@ -43,20 +43,6 @@ export function initHero() {
   const serifChars = splitChars($('.hero__line--serif [data-split]', hero));
   const scribble = $('.hero__scribble path', hero);
 
-  // coordenadas del cursor + timecode estilo cámara: el estudio "graba"
-  const cx = $('[data-coord-x]'), cy = $('[data-coord-y]'), tc = $('[data-timecode]');
-  window.addEventListener('pointermove', (e) => {
-    cx.textContent = String(Math.round(e.clientX)).padStart(4, '0');
-    cy.textContent = String(Math.round(e.clientY)).padStart(4, '0');
-  }, { passive: true });
-  const t0 = performance.now();
-  const tcLoop = () => {
-    const ms = performance.now() - t0;
-    const s = Math.floor(ms / 1000);
-    tc.textContent = `${pad2(Math.floor(s / 3600))}:${pad2(Math.floor(s / 60) % 60)}:${pad2(s % 60)}:${pad2(Math.floor((ms % 1000) / 41.67))}`;
-    requestAnimationFrame(tcLoop);
-  };
-  if (!reduced) tcLoop();
 
   // parallax de stickers con el cursor
   if (!reduced && finePointer) {

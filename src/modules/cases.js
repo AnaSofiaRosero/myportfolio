@@ -21,7 +21,7 @@ export function initCases(cases) {
     const cta = c.href ? `<a class="case__cta mono" href="${esc(c.href)}" target="_blank" rel="noopener" data-cursor="Behance ↗">Ver proyecto completo en Behance ↗</a>` : '';
     const pending = isDev && !c.images.length ? '<span class="dev-pending">Imágenes de Behance pendientes</span>' : '';
     const media = c.images.length
-      ? `<figure class="case__figure case__show ${c.vertical ? 'case__show--vertical' : ''} tone-${c.tone}">${slideshowHTML(c.images, { fit: 'contain', label: 'Imágenes de ' + c.title })}</figure>`
+      ? `<figure class="case__figure case__show ${c.vertical ? 'case__show--vertical' : ''} tone-${c.tone}">${slideshowHTML(c.images, { fit: c.vertical ? 'contain' : 'cover', label: 'Imágenes de ' + c.title })}</figure>`
       : `<div class="case__poster tone-${c.tone}" aria-hidden="true">
            ${pending}
            <span class="mono">${esc(c.tag)}</span>

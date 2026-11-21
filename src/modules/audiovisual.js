@@ -21,7 +21,11 @@ export function initAudiovisual({ videos, links }) {
     ? videos
     : isDev ? [1, 2, 3].map((n) => ({ platform: 'tiktok', url: '', title: `Pendiente: enlace de TikTok o Instagram #${n}`, placeholder: true })) : [];
 
-  reel.innerHTML = list.map((v, i) => `
+  // con enlace real: reproductor oficial directo (muestra la portada del video)
+  reel.innerHTML = list.map((v, i) => embedSrc(v) ? `
+    <div class="reel__item ${v.platform === 'instagram' ? 'reel__item--ig' : ''}">
+      <iframe src="${embedSrc(v)}" title="${v.title}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>` : `
     <div class="reel__item ${v.platform === 'instagram' ? 'reel__item--ig' : ''}">
       <button class="reel__facade" data-reel-play="${i}" ${v.placeholder ? 'disabled' : ''} data-cursor="Play" aria-label="Reproducir: ${v.title}">
         <span class="mono">${v.platform === 'instagram' ? 'Instagram' : 'TikTok'} · ${String(i + 1).padStart(2, '0')}</span>

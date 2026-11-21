@@ -103,11 +103,11 @@ export const projects = [
     tags: ['Académico', 'Redes sociales', 'Manual de marca'],
     desc: 'Carrusel de Instagram sobre IA y UX Research aplicando el manual de marca de la Universidad Icesi.',
     categories: ['branding', 'digital'],
-    slides: slides.icesi,
-    fit: 'contain',
+    // presentación completa (llena el cuadro); el caso muestra cada pieza en el teléfono
+    slides: [{ src: 'assets/icesi/icesi-carrusel-1600.webp', alt: 'Carrusel Icesi: las cuatro piezas y el mockup de Instagram' }],
     href: '#caso-icesi',
     internal: true,
-    tone: 'icesi',
+    tone: 'paper',
   },
   {
     id: 'tiktok',

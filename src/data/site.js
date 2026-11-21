@@ -9,7 +9,7 @@
 export const links = {
   behance: null,        // p. ej. 'https://www.behance.net/usuario'
   adobePortfolio: null, // p. ej. 'https://usuario.myportfolio.com'
-  tiktok: null,         // p. ej. 'https://www.tiktok.com/@usuario'
+  tiktok: 'https://www.tiktok.com/@anx.tz_',
   instagram: null,      // p. ej. 'https://www.instagram.com/usuario'
   linkedin: null,
   email: null,          // p. ej. 'hola@dominio.com'
@@ -31,7 +31,11 @@ export const sameBeatRole = [
  * Solo enlaces oficiales: se cargan con el reproductor embebido de cada plataforma.
  * { platform: 'tiktok' | 'instagram', url: '...', title: 'Descripción breve' }
  */
-export const videos = [];
+export const videos = [
+  { platform: 'tiktok', url: 'https://www.tiktok.com/@anx.tz_/video/7534708009935588614', title: 'TikTok 01' },
+  { platform: 'tiktok', url: 'https://www.tiktok.com/@anx.tz_/video/7528390257864199430', title: 'TikTok 02' },
+  { platform: 'tiktok', url: 'https://www.tiktok.com/@anx.tz_/video/7640899202276510997', title: 'TikTok 03' },
+];
 
 /**
  * Herramientas que usas, agrupadas. La sección se muestra cuando haya al menos un grupo.
