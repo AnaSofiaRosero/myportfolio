@@ -73,15 +73,16 @@ if (tools.length || isDev) {
 } else toolsEl.remove();
 
 // contacto
+// [etiqueta, url, texto que aparece al pasar el mouse]
 const contactItems = [
-  ['Correo', links.email && `mailto:${links.email}`, links.email],
-  ['WhatsApp', links.whatsapp && `https://wa.me/${links.whatsapp}`, 'WhatsApp · +57 322 261 9185'],
-  ['Behance', links.behance],
-  ['TikTok', links.tiktok],
-  ['LinkedIn', links.linkedin],
+  ['Correo', links.email && `mailto:${links.email}`, 'Escribir un correo'],
+  ['WhatsApp', links.whatsapp && `https://wa.me/${links.whatsapp}`, 'Ir al chat'],
+  ['Behance', links.behance, 'Ver portafolio'],
+  ['TikTok', links.tiktok, 'Ver perfil'],
+  ['LinkedIn', links.linkedin, 'Ver perfil'],
 ].filter(([, u]) => u || isDev);
-$('[data-contact-links]').innerHTML = contactItems.map(([label, url, text]) => url
-  ? `<li><a href="${url}" ${url.startsWith('mailto') ? '' : 'target="_blank" rel="noopener"'} data-cursor="Abrir"><span>${text || label}</span><span aria-hidden="true">↗</span></a></li>`
+$('[data-contact-links]').innerHTML = contactItems.map(([label, url, hint]) => url
+  ? `<li><a href="${url}" ${url.startsWith('mailto') ? '' : 'target="_blank" rel="noopener"'} data-cursor="Ir" aria-label="${label} — ${hint}"><span class="cl__label"><span class="cl__txt">${label}</span><span class="cl__hint" aria-hidden="true">${hint}</span></span><span aria-hidden="true">↗</span></a></li>`
   : `<li><span class="is-pending"><span>${label}</span><span class="mono">enlace pendiente</span></span></li>`).join('');
 
 // reloj local del visitante
