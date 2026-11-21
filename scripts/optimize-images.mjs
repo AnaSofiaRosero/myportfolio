@@ -20,6 +20,8 @@ const photos = {
   garabatos: ['Todas-04 1.png', 'Slide 16_9 - 21.png'],
   improvisados: ['improvisados-05 esta.png', 'improvisados-17 esta.png', 'improvisados-19 esta.png'],
   'arroz roa': ['arroz roa 1.png', 'arroz roa 2.png', 'arroz roa 3.png', 'arroz roa 4.png'],
+  // Carnival Stickers (imágenes de su proyecto en Behance)
+  stickers: ['1.jpg', '3.jpg', '4.jpg', '5.jpg'],
   // 7.png es idéntica a 5.png → se omite
   'same beat': ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'],
 };

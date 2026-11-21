@@ -7,10 +7,11 @@
  */
 
 export const links = {
-  behance: null,        // p. ej. 'https://www.behance.net/usuario'
+  behance: 'https://www.behance.net/sofiarosero8',
   adobePortfolio: null, // p. ej. 'https://usuario.myportfolio.com'
   tiktok: 'https://www.tiktok.com/@anx.tz_',
-  instagram: null,      // p. ej. 'https://www.instagram.com/usuario'
+  instagram: null,      // Ana prefiere no publicar su Instagram
+  whatsapp: '573222619185', // +57 322 261 9185
   linkedin: null,
   email: null,          // p. ej. 'hola@dominio.com'
   sameBeat: 'https://same-beat.onrender.com/',

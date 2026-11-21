@@ -1,4 +1,4 @@
-import { $$, reduced } from './utils.js';
+import { $$ } from './utils.js';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -24,7 +24,7 @@ export function initSlideshows(root = document, slidesData = new Map()) {
     const dots = $$('.ss__dots > *', el);
     const cap = el.querySelector('.ss__caption');
     if (imgs.length < 2) return;
-    let i = 0, timer = null, visible = false, hover = false;
+    let i = 0, timer = null, visible = false;
     const delay = 3200 + (n % 4) * 350; // desfasadas para que no cambien todas a la vez
 
     const show = (k) => {
@@ -39,12 +39,15 @@ export function initSlideshows(root = document, slidesData = new Map()) {
       if (nx.loading === 'lazy') nx.loading = 'eager';
     };
     const stop = () => { clearInterval(timer); timer = null; };
-    const start = () => { if (!reduced && !timer && visible && !hover) timer = setInterval(() => show(i + 1), delay); };
+    // siempre avanzan solas mientras estén en pantalla (con "reducir movimiento" solo cambia el fundido, sin zoom)
+    const start = () => { if (!timer && visible) timer = setInterval(() => show(i + 1), delay); };
 
     dots.filter((d) => d.tagName === 'BUTTON').forEach((d, k) => d.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); show(k); stop(); start(); }));
-    el.addEventListener('pointerenter', () => { hover = true; stop(); });
-    el.addEventListener('pointerleave', () => { hover = false; start(); });
-    new IntersectionObserver(([en]) => { visible = en.isIntersecting; visible ? start() : stop(); }, { threshold: 0.25 }).observe(el);
+    new IntersectionObserver(([en]) => {
+      visible = en.isIntersecting;
+      if (visible) imgs.forEach((im) => { im.loading = 'eager'; }); // cargar todas al aparecer
+      visible ? start() : stop();
+    }, { threshold: 0.15 }).observe(el);
   });
 }
 

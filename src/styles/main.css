@@ -483,6 +483,10 @@ div.card .card__go { opacity: .25; }
 .reel:empty { display: none; }
 .reel__item { flex: none; width: clamp(230px, 24vw, 325px); aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; position: relative; background: #000; scroll-snap-align: start; border: 1px solid var(--line-inv); }
 .reel__item--ig { aspect-ratio: 4 / 5.6; }
+.garabatos__behance { margin-top: 1.6rem; color: var(--paper); }
+.reel__cell { margin: 0; flex: none; display: flex; flex-direction: column; align-items: center; gap: .8rem; scroll-snap-align: start; }
+.reel__open { text-decoration: none; border: 1px solid var(--line-inv); border-radius: 99px; padding: .45rem .9rem; transition: background .3s, color .3s; }
+.reel__open:hover { background: var(--paper); color: var(--ink); }
 .reel__facade { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem; text-align: left; width: 100%; background: linear-gradient(160deg, #2a2420, #0e0c0b); transition: background .4s; }
 .reel__facade:hover { background: linear-gradient(160deg, var(--rose-deep), #0e0c0b); }
 .reel__play { width: 64px; aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--paper); display: grid; place-items: center; align-self: center; font-size: 1.2rem; }

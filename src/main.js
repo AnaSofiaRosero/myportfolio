@@ -75,11 +75,10 @@ if (tools.length || isDev) {
 // contacto
 const contactItems = [
   ['Correo', links.email && `mailto:${links.email}`, links.email],
+  ['WhatsApp', links.whatsapp && `https://wa.me/${links.whatsapp}`, 'WhatsApp · +57 322 261 9185'],
   ['Behance', links.behance],
-  ['Instagram', links.instagram],
   ['TikTok', links.tiktok],
   ['LinkedIn', links.linkedin],
-  ['Adobe Portfolio', links.adobePortfolio],
 ].filter(([, u]) => u || isDev);
 $('[data-contact-links]').innerHTML = contactItems.map(([label, url, text]) => url
   ? `<li><a href="${url}" ${url.startsWith('mailto') ? '' : 'target="_blank" rel="noopener"'} data-cursor="Abrir"><span>${text || label}</span><span aria-hidden="true">↗</span></a></li>`

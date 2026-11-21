@@ -43,6 +43,12 @@ const slides = {
     { src: `${P}/arroz-roa/3.webp`, alt: 'Empaque de Arroz Congrí ROA sobre fondo de arroz congrí' },
     { src: `${P}/arroz-roa/4.webp`, alt: 'Empaque de Arroz Congrí ROA frente a una calle de La Habana' },
   ],
+  stickers: [
+    { src: `${P}/stickers/1.webp`, alt: 'Portada del proyecto Carnival Stickers con letras coloridas' },
+    { src: `${P}/stickers/2.webp`, alt: 'Hoja de stickers circulares con personajes de Carnaval' },
+    { src: `${P}/stickers/3.webp`, alt: 'Sticker de Carnaval aplicado en una bolsa de papel kraft' },
+    { src: `${P}/stickers/4.webp`, alt: 'Rollo de stickers y paleta de color del proyecto' },
+  ],
   icesi: [
     { src: `${P}/icesi/1.webp`, alt: 'Pieza 1 en mockup de Instagram: La IA no reemplazará al UX Researcher' },
     { src: `${P}/icesi/2.webp`, alt: 'Pieza 2 en mockup de Instagram: Dovetail ayuda a analizar entrevistas más rápido' },
@@ -51,6 +57,16 @@ const slides = {
   ],
 };
 export { slides };
+
+/** Proyectos publicados en Behance */
+export const behance = {
+  profile: 'https://www.behance.net/sofiarosero8',
+  garabatos: 'https://www.behance.net/gallery/253392869/Garabatos-Brand-Identity-Packaging-Design',
+  stickers: 'https://www.behance.net/gallery/241040251/Carnival-Stickers-Design',
+  improvisados: 'https://www.behance.net/gallery/240677793/IMPROVISADOS-rock-band-branding',
+  roa: 'https://www.behance.net/gallery/244599057/Congri-Rice-ROA-Cuban-Flavor-and-Identity',
+  sameBeat: 'https://www.behance.net/gallery/245330811/Same-Beat-App-UX-IU-design',
+};
 
 export const projects = [
   {
@@ -98,6 +114,16 @@ export const projects = [
     tone: 'ink',
   },
   {
+    id: 'stickers',
+    title: 'Carnival Stickers',
+    tags: ['Ilustración', 'Stickers', 'Paleta de color'],
+    desc: 'Stickers inspirados en el Carnaval: personajes carismáticos en un estilo plano y alegre, con colores sólidos y alto contraste.',
+    categories: ['illustration', 'branding'],
+    slides: slides.stickers,
+    href: behance.stickers,
+    tone: 'ink',
+  },
+  {
     id: 'icesi',
     title: 'Carrusel Icesi',
     tags: ['Académico', 'Redes sociales', 'Manual de marca'],
@@ -138,7 +164,7 @@ export const cases = [
     ],
     steps: ['Naming', 'Concepto', 'Sistema visual', 'Aplicaciones'],
     images: slides.improvisados,
-    href: null,
+    href: behance.improvisados,
     tone: 'ink',
   },
   {
@@ -150,7 +176,7 @@ export const cases = [
     facts: [],
     steps: [],
     images: slides.roa,
-    href: null,
+    href: behance.roa,
     tone: 'ink',
   },
   {
