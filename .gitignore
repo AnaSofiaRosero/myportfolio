@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .claude/
+
+# originales pesados (se generan versiones web con npm run images)
+source-assets/projects/

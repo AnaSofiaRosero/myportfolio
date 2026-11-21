@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { $, $$, reduced, isDev } from './utils.js';
+import { slideshowHTML, initSlideshows } from './slideshow.js';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -20,7 +21,7 @@ export function initCases(cases) {
     const cta = c.href ? `<a class="case__cta mono" href="${esc(c.href)}" target="_blank" rel="noopener" data-cursor="Behance ↗">Ver proyecto completo en Behance ↗</a>` : '';
     const pending = isDev && !c.images.length ? '<span class="dev-pending">Imágenes de Behance pendientes</span>' : '';
     const media = c.images.length
-      ? c.images.map((im) => `<figure class="case__figure"><img src="${im.src}" srcset="${im.srcset || ''}" sizes="(max-width: 860px) 92vw, 58vw" alt="${esc(im.alt)}" loading="lazy" decoding="async" style="aspect-ratio:${im.ratio}" /></figure>`).join('')
+      ? `<figure class="case__figure case__show ${c.vertical ? 'case__show--vertical' : ''} tone-${c.tone}">${slideshowHTML(c.images, { fit: 'contain', label: 'Imágenes de ' + c.title })}</figure>`
       : `<div class="case__poster tone-${c.tone}" aria-hidden="true">
            ${pending}
            <span class="mono">${esc(c.tag)}</span>
@@ -43,9 +44,10 @@ export function initCases(cases) {
     </article>`;
   }).join('');
 
+  initSlideshows(root);
   if (reduced) return;
   $$('.case', root).forEach((el) => {
-    const fig = $('.case__figure img, .case__poster', el);
+    const fig = $('.case__figure, .case__poster', el);
     gsap.fromTo(fig, { clipPath: 'inset(18% 10% 18% 10%)' }, {
       clipPath: 'inset(0% 0% 0% 0%)', ease: 'none',
       scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 25%', scrub: 0.6 },

@@ -2,11 +2,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Flip } from 'gsap/Flip';
 import { $, $$, reduced, isDev, pad2 } from './utils.js';
+import { slideshowHTML, initSlideshows } from './slideshow.js';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-function cardHTML(p, i, categories, garabatoCover) {
-  const cover = p.cover === '/__garabatos__' ? garabatoCover : p.cover;
+function cardHTML(p, i, categories) {
+  const cover = p.slides?.length > 0;
   const catLabels = p.categories.map((c) => categories.find((x) => x.id === c)?.label).filter(Boolean).join(' · ');
   const tag = p.href ? 'a' : 'div';
   const external = p.href && !p.internal;
@@ -15,17 +16,16 @@ function cardHTML(p, i, categories, garabatoCover) {
     : 'aria-disabled="true"';
 
   const media = cover
-    ? `<img src="${esc(cover)}" alt="" loading="lazy" decoding="async"  />`
+    ? slideshowHTML(p.slides, { fit: p.fit || 'cover', interactive: false })
     : `<div class="typo-cover tone-${p.tone}">
          <span class="typo-cover__word" style="--len:${Math.max(...p.title.split(' ').map((w) => w.length))}">${esc(p.title)}</span>
        </div>`;
   const pending = isDev && !p.internal && (!p.href || !cover) ? `<span class="dev-pending">${!cover ? 'Portada Behance pendiente' : 'Enlace pendiente'}</span>` : '';
 
   const chips = (p.tags || []).map((t) => `<li>${esc(t)}</li>`).join('');
-  const fit = p.cover === '/__garabatos__' || p.fit === 'contain';
 
   return `<${tag} class="card" data-cats="${p.categories.join(' ')}" ${attrs}>
-    <div class="card__media ${cover ? `tone-${p.tone}` : ''} ${fit ? 'is-fit' : ''}">
+    <div class="card__media tone-${p.tone}">
       ${media}
       ${pending}
       <span class="card__num mono" aria-hidden="true">${pad2(i + 1)}</span>
@@ -40,13 +40,13 @@ function cardHTML(p, i, categories, garabatoCover) {
   </${tag}>`;
 }
 
-export function initGallery({ projects, categories, garabatoCover }) {
+export function initGallery({ projects, categories }) {
   gsap.registerPlugin(Flip);
   const gallery = $('[data-gallery]');
   const filters = $('[data-filters]');
   const empty = $('[data-gallery-empty]');
 
-  gallery.innerHTML = projects.map((p, i) => cardHTML(p, i, categories, garabatoCover)).join('');
+  gallery.innerHTML = projects.map((p, i) => cardHTML(p, i, categories)).join('');
 
   const all = [{ id: 'all', label: 'Todo' }, ...categories];
   filters.innerHTML = all.map((c) => {
@@ -55,6 +55,7 @@ export function initGallery({ projects, categories, garabatoCover }) {
   }).join('');
 
   const cards = $$('.card', gallery);
+  initSlideshows(gallery);
 
   filters.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-filter]');
@@ -85,7 +86,7 @@ export function initGallery({ projects, categories, garabatoCover }) {
   }
   cards.forEach((card) => {
     const mask = $('.card__mask', card);
-    const img = $('.card__media img, .typo-cover__word', card);
+    const img = $('.card__media .ss, .typo-cover__word', card);
     const tl = gsap.timeline({ scrollTrigger: { trigger: card, start: 'top 88%', once: true } });
     tl.to(mask, { scaleY: 0, duration: 1.2, ease: 'expo.inOut' })
       .from(img, { scale: 1.35, duration: 1.6, ease: 'expo.out', clearProps: 'transform' }, 0.2)

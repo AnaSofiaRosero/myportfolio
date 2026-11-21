@@ -57,7 +57,7 @@ document.addEventListener('click', (e) => {
 });
 
 // ---------- contenido dinámico
-initGallery({ projects, categories, garabatoCover: garabatos[0]?.src });
+initGallery({ projects, categories });
 initCases(cases);
 initCarousel(garabatos, { lenis });
 initSameBeat({ role: sameBeatRole, url: links.sameBeat });
